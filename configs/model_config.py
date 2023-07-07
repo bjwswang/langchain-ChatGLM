@@ -34,6 +34,12 @@ EMBEDDING_DEVICE = "cuda" if torch.cuda.is_available() else "mps" if torch.backe
 # 如将 "chatglm-6b" 的 "local_model_path" 由 None 修改为 "User/Downloads/chatglm-6b"
 # 此处请写绝对路径
 llm_model_dict = {
+    "rwkv-4-world-1.5b": {
+        "name": "rwkv-4-world-1.5b",
+        "pretrained_model_name": "BlinkDL/rwkv-4-world",
+        "local_model_path": "/root/bjwswang/ai-modesl/rwkv/rwkv-4-world-1.5b",
+        "provides": "ChatGLM"
+    }, 
     "chatglm-6b-int4-qe": {
         "name": "chatglm-6b-int4-qe",
         "pretrained_model_name": "THUDM/chatglm-6b-int4-qe",
@@ -122,7 +128,7 @@ llm_model_dict = {
 }
 
 # LLM 名称
-LLM_MODEL = "chatglm-6b"
+LLM_MODEL = "rwkv-4-world-1.5b"
 # 量化加载8bit 模型
 LOAD_IN_8BIT = False
 # Load the model with bfloat16 precision. Requires NVIDIA Ampere GPU.
